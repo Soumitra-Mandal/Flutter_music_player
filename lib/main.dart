@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences_flutter_demo/screens/music_gallery.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -15,21 +16,16 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   static const _pages = <Widget>[
+    MusicGallery(),
     Center(
       child: Icon(
-        Icons.message,
+        Icons.search,
         size: 40,
       ),
     ),
     Center(
       child: Icon(
-        Icons.add,
-        size: 40,
-      ),
-    ),
-    Center(
-      child: Icon(
-        Icons.alarm,
+        Icons.person,
         size: 40,
       ),
     )
@@ -37,16 +33,22 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   static const _tabs = <Tab>[
     Tab(
-      icon: Icon(Icons.message),
-      text: 'Msg',
+      icon: Icon(
+        Icons.music_note,
+        size: 35,
+      ),
     ),
     Tab(
-      icon: Icon(Icons.add),
-      text: 'Add',
+      icon: Icon(
+        Icons.search,
+        size: 35,
+      ),
     ),
     Tab(
-      icon: Icon(Icons.alarm),
-      text: 'Alarm',
+      icon: Icon(
+        Icons.person,
+        size: 35,
+      ),
     ),
   ];
 
@@ -72,14 +74,20 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       home: Scaffold(
         appBar: AppBar(
           elevation: 1,
-          backgroundColor: Colors.blue[600],
+          backgroundColor: Colors.blueGrey[900],
+          title: const Center(
+            child: Text(
+              "Play Music",
+              style: TextStyle(fontFamily: "Open Sans"),
+            ),
+          ),
         ),
         body: TabBarView(
           children: _pages,
           controller: _tabController,
         ),
         bottomNavigationBar: Material(
-          color: Colors.blue[600],
+          color: Colors.blueGrey[900],
           child: TabBar(
             tabs: _tabs,
             controller: _tabController,
