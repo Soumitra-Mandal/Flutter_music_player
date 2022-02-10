@@ -87,6 +87,11 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             controller: _tabController,
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.shuffle),
+          backgroundColor: Colors.blueGrey[700],
+        ),
       ),
     );
   }
