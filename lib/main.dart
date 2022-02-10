@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences_flutter_demo/screens/music_gallery.dart';
+import 'screens/profile.dart';
+import 'screens/search_screen.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -17,37 +19,27 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   static const _pages = <Widget>[
     MusicGallery(),
-    Center(
-      child: Icon(
-        Icons.search,
-        size: 40,
-      ),
-    ),
-    Center(
-      child: Icon(
-        Icons.person,
-        size: 40,
-      ),
-    )
+    SearchScreen(),
+    ProfileScreen(),
   ];
 
   static const _tabs = <Tab>[
     Tab(
       icon: Icon(
         Icons.music_note,
-        size: 35,
+        size: 25,
       ),
     ),
     Tab(
       icon: Icon(
         Icons.search,
-        size: 35,
+        size: 25,
       ),
     ),
     Tab(
       icon: Icon(
         Icons.person,
-        size: 35,
+        size: 25,
       ),
     ),
   ];
@@ -89,6 +81,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         bottomNavigationBar: Material(
           color: Colors.blueGrey[900],
           child: TabBar(
+            isScrollable: false,
+            indicatorColor: Colors.blueGrey,
             tabs: _tabs,
             controller: _tabController,
           ),
