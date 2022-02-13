@@ -27,19 +27,19 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     Tab(
       icon: Icon(
         Icons.music_note,
-        size: 25,
+        size: 24,
       ),
     ),
     Tab(
       icon: Icon(
         Icons.search,
-        size: 25,
+        size: 24,
       ),
     ),
     Tab(
       icon: Icon(
         Icons.person,
-        size: 25,
+        size: 24,
       ),
     ),
   ];
@@ -63,34 +63,24 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          backgroundColor: Colors.blueGrey[900],
-          title: const Center(
-            child: Text(
-              "Play Music",
-              style: TextStyle(fontFamily: "Open Sans"),
-            ),
-          ),
-        ),
-        body: TabBarView(
-          children: _pages,
-          controller: _tabController,
-        ),
-        bottomNavigationBar: Material(
-          color: Colors.blueGrey[900],
-          child: TabBar(
-            isScrollable: false,
-            indicatorColor: Colors.blueGrey,
-            tabs: _tabs,
+      home: SafeArea(
+        child: Scaffold(
+          body: TabBarView(
+            children: _pages,
             controller: _tabController,
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.shuffle),
-          backgroundColor: Colors.blueGrey[700],
+          bottomNavigationBar: Material(
+            elevation: 15,
+            color: Colors.grey[100],
+            child: TabBar(
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey[600],
+              isScrollable: false,
+              indicatorColor: Colors.blueGrey,
+              tabs: _tabs,
+              controller: _tabController,
+            ),
+          ),
         ),
       ),
     );

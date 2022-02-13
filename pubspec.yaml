@@ -74,5 +74,9 @@ flutter:
         - asset: assets/fonts/Open-Sans.ttf
         - asset: assets/fonts/Open-Sans-Italic.ttf
           style: italic
-
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Italic.ttf
+          style: italic
 
